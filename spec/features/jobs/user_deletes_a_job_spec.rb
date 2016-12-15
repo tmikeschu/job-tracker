@@ -22,7 +22,7 @@ RSpec.feature 'User deletes a job' do
     visit company_jobs_path(@company)
     click_on @job.title
     click_on "Delete"
-    expect(current_path).to eq jobs_path
-    expect(page).to_not have_link @job.title, href: job_path(@job)
+    expect(current_path).to eq company_jobs_path(@company)
+    expect(page).to_not have_link @job.title, href: company_job_path(@company, @job)
   end
 end
