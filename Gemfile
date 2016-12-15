@@ -39,6 +39,9 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails', "~> 4.0"
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'pry'
 end
 
 group :development do
