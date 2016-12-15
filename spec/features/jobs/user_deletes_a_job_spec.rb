@@ -1,7 +1,7 @@
 =begin 
 As a user
-Assuming their is a job in the database
-When I visit the jobs index
+Assuming there is a job in the database
+When I visit the jobs index of a company
 and click to an individual job
 and I click "Delete"
 I am taken back to the jobs index
@@ -13,12 +13,13 @@ require 'rails_helper'
 RSpec.feature 'User deletes a job' do
   
   before do
-    @jobs = create_list(:job, 10)
-    @job  = @jobs[4]
+    @company = create(:company_with_jobs)
+    @jobs    = @company.jobs
+    @job     = @jobs[4]
   end
 
   scenario 'they delete a job and return to index page' do
-    visit jobs_path
+    visit company_jobs_path(@company)
     click_on @job.title
     click_on "Delete"
     expect(current_path).to eq jobs_path
