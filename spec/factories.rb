@@ -2,7 +2,9 @@ require 'factory_girl_rails'
 
 FactoryGirl.define do
   factory :category do
-    title "MyString"
+    sequence :title do
+      Faker::Company.name
+    end
   end
 
   factory :job do
@@ -21,6 +23,12 @@ FactoryGirl.define do
     sequence :city do
       Faker::Address.city
     end
+
+    factory :job_with_category do
+      after(:create) do |job|
+        job.category = create(:category)
+      end
+    end
   end
 
   factory :company do
@@ -30,9 +38,8 @@ FactoryGirl.define do
 
     factory :company_with_jobs do
       after(:create) do |company|
-        company.jobs = create_list(:job, 10)
+        company.jobs = create_list(:job_with_category, 10)
       end
     end
   end
-
 end
