@@ -2,14 +2,16 @@
   <h1 class='page-header'>
     All Categories
   </h1>
-  <ul>
+  <ul class="list-group">
     <% @categories.each do |category| %>
-      <li>
-        <%= link_to category.title, category_jobs_path(category) %>
+      <li class="list-group-item">
+        <%= link_to category.title, category_path(category) %>
       </li>
+      <%= link_to "Edit", edit_category_path(category), class: "btn btn-warning" %>
+      <%= link_to "Delete", category_path(category), class: "btn btn-danger" %>
     <% end %>
   </ul>
   <div class='container'>
-    <%= link_to "New Category", new_category_path %>
+    <%= link_to "New Category", new_category_path, class: "btn btn-success" %>
   </div>
 </div>
