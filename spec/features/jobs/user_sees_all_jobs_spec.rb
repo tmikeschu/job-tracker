@@ -7,7 +7,7 @@ RSpec.feature "User sees all jobs" do
     visit company_path(company)
 
     company.jobs.each do |job|
-      expect(page).to have_link job.title, company_job_path(company, job)
+      expect(page).to have_link job.title, href: company_job_path(company, job)
     end
   end
 end
