@@ -23,4 +23,18 @@ RSpec.feature "User creates a new company" do
       expect(page).to have_content "Name can't be blank"
     end
   end
+ 
+  context "when they enter a duplicate name" do
+    scenario "they receive an error" do
+      fill_in "company_name", with: "ESPN"
+      click_on "Create"
+
+      visit companies_path
+      click_on "Add New Company"
+      fill_in "company_name", with: "ESPN"
+      click_on "Create"
+      expect(page).to have_content "Name has already been taken"
+    end
+  end
+
 end
