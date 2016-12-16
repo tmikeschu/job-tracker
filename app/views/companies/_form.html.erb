@@ -1,8 +1,12 @@
 <div class="container">
   <%= form_for @company do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.submit %>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :name %>
+      </span>
+      <%#<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">%>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>
