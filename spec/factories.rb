@@ -1,6 +1,9 @@
 require 'factory_girl_rails'
 
 FactoryGirl.define do
+  factory :category do
+    title "MyString"
+  end
 
   factory :job do
     sequence :title do 
