@@ -1,7 +1,7 @@
 body {
   font-family: "Quicksand", sans-serif;
-  color: #FFD34E;
-  /*background-color: #DB9E36;*/
+  color: rgb(255, 211, 78);
+  background-color: rgba(219, 158, 54, .2);
   /*background-color: #105B63;*/
 }
 
@@ -9,9 +9,13 @@ body {
   margin: 10px auto;
 }
 
+.list-group {
+  padding-left: 25px;
+}
+
 .list-group-item {
   color: #BD4932;
-  background-color: #FFFAD5;
+  background-color: rgb(255, 250, 213);
   background-color: rgba(16, 91, 99, .30);
 }
 
