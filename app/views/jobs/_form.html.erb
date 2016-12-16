@@ -1,31 +1,33 @@
-<%= form_for [@company, @job] do |f| %>
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">
-      <%= f.label :title %>
-    </span>
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
-  
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">
-      <%= f.label :description %>
-    </span>
-    <%= f.text_field :description, class: "form-control" %>
-  </div>
+<div class='container'>
+  <%= form_for [@company, @job] do |f| %>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :title %>
+      </span>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :description %>
+      </span>
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
 
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">
-      <%= f.label :level_of_interest %>
-    </span>
-    <%= f.number_field :level_of_interest, class: "form-control" %>
-  </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :level_of_interest %>
+      </span>
+      <%= f.number_field :level_of_interest, class: "form-control" %>
+    </div>
 
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">
-      <%= f.label :city %>
-    </span>
-    <%= f.text_field :city, class: "form-control" %>
-  </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :city %>
+      </span>
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
 
-    <%= f.submit class: "btn btn-primary" %>
-  <% end %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+</div>
