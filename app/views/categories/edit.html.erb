@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>
+    <%= "Edit Category: #{@category.title}"%>
+  </h1>
+  <% if @errors %>
+    <%= render partial: "shared/errors" %>
+  <% end %>
+
+  <%= render partial: "form" %>
+</div>
