@@ -1,7 +1,13 @@
-<h2>Create a new job at <%= @company.name %> here!</h2>
+<% @title = "JTrack | Add a Job @ #{@company.name}"%>
 
-<% if @errors %>
-  <%= render partial: "shared/errors" %>
-<% end %>
+<div class='container form'>
+  <h1 class="page-header">
+  Create a new job at <%= @company.name %> here!
+  </h1>
 
-<%= render partial: "form" %>
+  <% if @errors %>
+    <%= render partial: "shared/errors" %>
+  <% end %>
+
+  <%= render partial: "form" %>
+</div>
