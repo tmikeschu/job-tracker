@@ -1,14 +1,26 @@
 require 'rails_helper'
 
-describe "User creates a new company" do
-  scenario "a user can create a new company" do
-    visit new_company_path
+RSpec.feature "User creates a new company" do
+  before do
+    visit companies_path
+    click_on "Add New Company"
+  end
 
-    fill_in "company[name]", with: "ESPN"
-    click_button "Create"
+  scenario "a user can create a new company" do
+    fill_in "company_name", with: "ESPN"
+    click_on "Create"
 
     expect(current_path).to eq("/companies/#{Company.last.id}/jobs")
     expect(page).to have_content("ESPN")
     expect(Company.count).to eq(1)
+  end
+
+  context "when they enter invalid data" do
+    scenario "they receive an error" do
+      fill_in "company_name", with: ""
+      click_on "Create"
+
+      expect(page).to have_content "Name can't be blank"
+    end
   end
 end
