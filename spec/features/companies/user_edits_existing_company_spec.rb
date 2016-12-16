@@ -1,15 +1,20 @@
 require 'rails_helper'
 
-describe "User edits an existing company" do
+RSpec.feature "User edits an existing company" do
+  before do
+    @companies = create_list(:company, 2)
+  end
+
   scenario "a user can edit a company" do
-    company = Company.create!(name: "ESPN")
+    company  = @companies.first
+    old_name = company.name
     visit edit_company_path(company)
 
-    fill_in "company[name]", with: "EA Sports"
+    fill_in "company_name", with: "EA Sports"
     click_button "Update"
 
-    expect(current_path).to eq("/companies/#{Company.last.id}/jobs")
+    expect(current_path).to eq company_jobs_path(company)
     expect(page).to have_content("EA Sports")
-    expect(page).to_not have_content("ESPN")
+    expect(page).to_not have_content old_name
   end
 end
