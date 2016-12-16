@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Job do
+RSpec.describe Job, type: :model do
   describe "validations" do
     context "invalid attributes" do
       it "is invalid without a title" do
@@ -28,9 +28,7 @@ describe Job do
   end
 
   describe "relationships" do
-    it "belongs to a company" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
-      expect(job).to respond_to(:company)
-    end
+    it {should belong_to(:company)}
+    it {should belong_to(:category)}
   end
 end
