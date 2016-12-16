@@ -16,6 +16,7 @@ class JobsController < ApplicationController
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
+      @errors = @job.errors.full_messages
       render :new
     end
   end
@@ -25,11 +26,20 @@ class JobsController < ApplicationController
   end
 
   def edit
-    # implement on your own!
+    @job = Job.find(params[:id])
+    @company = @job.company
   end
 
   def update
-    # implement on your own!
+    @job = Job.find(params[:id])
+    @company = @job.company
+    if @job.update(job_params)
+      redirect_to company_job_path(@job.company, @job)
+    else
+      # require 'pry'; binding.pry
+      @errors = @job.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
