@@ -1,13 +1,3 @@
-=begin 
-As a user
-Assuming there is a job in the database
-When I visit the jobs index of a company
-and click to an individual job
-and I click "Delete"
-I am taken back to the jobs index
-and the deleted job is not on the page.
-=end
-
 require 'rails_helper'
 
 RSpec.feature 'User deletes a job' do
