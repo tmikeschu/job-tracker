@@ -1,5 +1,33 @@
 body {
   font-family: "Quicksand", sans-serif;
+  color: #FFD34E;
+  /*background-color: #DB9E36;*/
+  /*background-color: #105B63;*/
+}
+
+.container {
+  margin: 10px auto;
+}
+
+.list-group-item {
+  color: #BD4932;
+  background-color: #FFFAD5;
+  background-color: rgba(16, 91, 99, .30);
+}
+
+.header-background {
+  background-color: rgba(189, 73, 50, .30);
+  border-radius: 5px;
+  color: #105B63;
+}
+
+.button-trio {
+  text-align: center;
+  margin-left: 100px;
+}
+
+.col-md-3 {
+  margin: 0 10px;
 }
 
 
