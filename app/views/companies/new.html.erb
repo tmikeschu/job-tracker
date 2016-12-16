@@ -1,4 +1,6 @@
 <h2>Create a new company here!</h2>
-<%= render partial: "shared/errors"%>
+<% if @errors %>
+  <%= render partial: "shared/errors" %>
+<% end %>
 <%= render partial: "form" %>
 
