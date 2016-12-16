@@ -1,13 +1,13 @@
-<% @title = "JTrack | Edit Job" %>
+<% @title = "JTrack | Edit #{@job.title}" %>
 
-<div class='container'>
+<div class='container form'>
   <h1 class="page-header">
     Edit <%= @job.title %>
   </h1>
+
+  <% if @errors %>
+    <%= render partial: "shared/errors" %>
+  <% end %>
+
+  <%= render partial: "form" %>
 </div>
-
-<% if @errors %>
-  <%= render partial: "shared/errors" %>
-<% end %>
-
-<%= render partial: "form" %>
