@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :companies do
-    resources :jobs
+  resources :companies, except: [:patch] do
+    resources :jobs, except: [:patch]
   end
 
-  resources :categories, only: [:index, :new, :create, :show] do
-    resources :jobs, only: [:index]
-  end   
+  resources :categories, except: [:patch]
 end
