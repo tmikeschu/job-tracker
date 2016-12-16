@@ -5,8 +5,11 @@
   <ul>
     <% @categories.each do |category| %>
       <li>
-        <%= link_to category.title, category_path(category) %>
+        <%= link_to category.title, category_jobs_path(category) %>
       </li>
     <% end %>
   </ul>
+  <div class='container'>
+    <%= link_to "New Category", new_category_path %>
+  </div>
 </div>

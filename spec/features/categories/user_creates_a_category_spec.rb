@@ -1,12 +1,3 @@
-=begin 
-As a user
-If I visit the categories page,
-and I click "New Category",
-and I fill in a category title,
-and I click "Create Category",
-I return to the categories page,
-and the list now includes the new category.
-=end
 require 'rails_helper'
 
 RSpec.feature "User creates a category" do
@@ -19,13 +10,26 @@ RSpec.feature "User creates a category" do
     expect(page).to have_link "Web Development", href: category_jobs_path(Category.first)
   end
 
-  xcontext "when they enter nothing for title" do
+  context "when they enter nothing for title" do
     scenario "they see an error message" do
+      visit categories_path
+      click_on "New Category"
+      fill_in "category_title", with: ""
+      click_on "Create Category"
+      expect(page).to have_content "Whoops!"
+      expect(page).to have_content "Title can't be blank"
     end
   end
 
-  xcontext "when they enter an existing title" do
+  context "when they enter an existing title" do
     scenario "they see an error message" do
+      category = create(:category)
+      visit categories_path
+      click_on "New Category"
+      fill_in "category_title", with: category.title
+      click_on "Create Category"
+      expect(page).to have_content "Whoops!"
+      expect(page).to have_content "already been taken"
     end
   end
 end
