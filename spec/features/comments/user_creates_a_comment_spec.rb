@@ -1,13 +1,3 @@
-=begin 
-As a user
-given a job exists in the database
-If I go to that job page
-and fill in a comment
-and click "Add Comment"
-then the page reloads
-and I can see that new comment on the job page
-=end
-
 require 'rails_helper'
 
 RSpec.feature "User creates a comment" do
@@ -22,8 +12,17 @@ RSpec.feature "User creates a comment" do
   scenario "they create a comment for a job" do
     comment = "Really excited about this one!"
     fill_in "comment_content", with: comment
-    click_on "Add Comment"
+    click_on "Create Comment"
     expect(current_path).to eq company_job_path(@company, @job)
     expect(page).to have_content comment
+  end
+
+  context "when they enter a blank comment" do
+    scenario "they see an error message" do
+      fill_in "comment_content", with: ""
+      click_on "Create Comment"
+      expect(current_path).to eq job_comments_path(@job)
+      expect(page).to have_content "Whoops! Content can't be blank"
+    end
   end
 end
