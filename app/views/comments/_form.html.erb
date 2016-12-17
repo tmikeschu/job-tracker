@@ -1,0 +1,10 @@
+<div>
+  <%= form_for [@job, @comment] do |f| %>
+    <div class='input-group'>
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :content %>
+      </span>
+      <%= f.text_field :content, class: "form-control" %>
+    </div>
+  <% end %>
+</div>
