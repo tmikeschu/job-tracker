@@ -2,9 +2,11 @@
   <%= form_for [@job, @comment] do |f| %>
     <div class='input-group'>
       <span class="input-group-addon" id="basic-addon1">
-        <%= f.label :content %>
+        <%= f.label "New Comment" %>
       </span>
       <%= f.text_field :content, class: "form-control" %>
     </div>
+
+    <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>
