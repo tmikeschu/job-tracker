@@ -1,8 +1,3 @@
-# As a user
-# given a category exists in the database
-# if I go to the categories page
-# and delete on of the categories
-# the page will reload without the category listed
 require 'rails_helper'
 
 RSpec.feature "User deletes a category" do
