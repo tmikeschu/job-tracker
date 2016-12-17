@@ -39,15 +39,13 @@
                 class: "btn btn-danger col-md-3" %>
   </div>
 
-  <ul class='list-group comment-list'>
-    <h2 class="page-header text-center">
+  <ul class='list-group comment-list text-center'>
+    <h2 class="page-header">
       Comments
     </h2>
     <%= render partial: "jobs/comment",
            collection: @job.comments.reverse %>
-  </ul>
-  
-  <div class="container form">
+           
     <%= render partial: "comments/form" %>
-  </div>
+  </ul>
 </div>
