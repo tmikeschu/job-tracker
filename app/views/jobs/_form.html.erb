@@ -29,7 +29,7 @@
     </div>
 
     <div class='input-group'>
-      <%= select_tag "job_category",
+      <%= f.select :category_id,
                       options_from_collection_for_select(@categories, "id", "title"),
                       prompt: "-CATEGORY-",
                       class: "form-control" %>
