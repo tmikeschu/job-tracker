@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   
-  before_action :set_category, only: [:show, :edit, :destroy, :update]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
   
   def index
     @categories = Category.all
@@ -34,6 +34,11 @@ class CategoriesController < ApplicationController
       @errors = @category.errors.full_messages
       render :edit
     end
+  end
+
+  def destroy
+    @category.destroy
+    redirect_to categories_path
   end
 
   private
