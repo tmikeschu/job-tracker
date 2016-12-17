@@ -31,9 +31,13 @@
     <div class='input-group'>
       <%= select_tag "job_category",
                       options_from_collection_for_select(@categories, "id", "title"),
+                      prompt: "-CATEGORY-",
                       class: "form-control" %>
     </div>
 
-      <%= f.submit class: "btn btn-primary" %>
-    <% end %>
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to "Create a New Category",
+                new_category_path,
+                class: "btn btn-success" %>
+  <% end %>
 </div>
