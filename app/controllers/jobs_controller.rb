@@ -28,6 +28,8 @@ class JobsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comment.job_id = @job.id
   end
 
   def edit
