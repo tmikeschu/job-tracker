@@ -3,4 +3,6 @@ class Job < ActiveRecord::Base
   
   belongs_to :category
   belongs_to :company
+  
+  has_many :comments
 end
