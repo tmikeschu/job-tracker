@@ -2,8 +2,15 @@ require 'factory_girl_rails'
 
 FactoryGirl.define do
   factory :category do
-    sequence :title do
-      Faker::Company.name
+    sequence :title do |n|
+      "#{Faker::Company.name} #{n}"
+    end
+
+    factory :category_with_jobs do
+      after(:create) do |category|
+        jobs = create_list(:job_with_company, 10)
+        category.jobs = jobs
+      end
     end
   end
 
@@ -16,7 +23,7 @@ FactoryGirl.define do
       Faker::Lorem.sentence
     end
 
-    sequence :level_of_interest do |n|
+    sequence :level_of_interest do
       rand(99) + 1
     end
 
@@ -29,11 +36,17 @@ FactoryGirl.define do
         job.category = create(:category)
       end
     end
+
+    factory :job_with_company do
+      after(:create) do |job|
+        job.company = create(:company)
+      end
+    end
   end
 
   factory :company do
     sequence :name do |n|
-      Faker::Company.name
+      "#{Faker::Company.name} #{n}"
     end
 
     factory :company_with_jobs do
