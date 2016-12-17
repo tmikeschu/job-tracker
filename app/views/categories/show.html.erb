@@ -6,7 +6,7 @@
   <ul class="list-group">
     <% @jobs.each do |job| %>
       <li class="list-group-item">
-        <%= link_to job.title, company_job_path(job.company, job) %>
+        <%= link_to "#{job.title} @ #{job.company.name}", company_job_path(job.company, job) %>
       </li>
     <% end %>
   </ul>
