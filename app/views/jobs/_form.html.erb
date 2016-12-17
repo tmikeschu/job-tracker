@@ -27,13 +27,14 @@
       </span>
       <%= f.text_field :city, class: "form-control" %>
     </div>
-
-    <div class='input-group'>
-      <%= f.select :category_id,
-                      options_from_collection_for_select(@categories, "id", "title"),
-                      prompt: "-CATEGORY-",
-                      class: "form-control" %>
-    </div>
+    <% if @categories %>
+      <div class='input-group'>
+        <%= f.select :category_id,
+                        options_from_collection_for_select(@categories, "id", "title"),
+                        prompt: "-CATEGORY-",
+                        class: "form-control" %>
+      </div>
+    <% end %>
 
     <%= f.submit class: "btn btn-primary" %>
     <%= link_to "Create a New Category",
