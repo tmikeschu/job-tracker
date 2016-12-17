@@ -1,13 +1,33 @@
+#colorssss {
+  background-color: rgba(219, 158, 54, 1);
+  background-color: rgba(189, 73, 50, 1);
+  background-color: rgb(255, 250, 213);
+  background-color: rgba(16, 91, 99, 1);
+}
+
 body {
   font-family: "Quicksand", sans-serif;
   color: rgba(16, 91, 99, 1);
   background-color: rgba(219, 158, 54, .2);
-  /*background-color: #105B63;*/
   padding-top: 70px;
 }
 
 .container {
   margin: 10px auto;
+}
+
+.navbar {
+  background-color: rgba(16, 91, 99, .6);
+}
+
+.navbar-default .navbar-brand {
+  color: rgb(255, 250, 213);
+  font-size: 40px;
+}
+
+.navbar-right .dropdown .dropdown-toggle {
+  font-size: 20px;
+  color: rgb(255, 250, 213);
 }
 
 .list-group {
@@ -29,7 +49,6 @@ li a {
 }
 
 .list-group-item {
-  /*background-color: rgb(255, 250, 213);*/
   background-color: rgba(189, 73, 50, .3);
 }
 
