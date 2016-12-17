@@ -16,6 +16,9 @@
     <li class="list-group-item">
       City: <%= @job.city %>
     </li>
+    <li class='list-group-item'>
+      Category: <%= @job.category.title if @job.category %>
+    </li>
   </ul>
   <div class="container button-trio">
     <%= link_to "Back to #{@job.company.name}",
