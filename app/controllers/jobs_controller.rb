@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_company, only: [:index, :new, :create]
+  before_action :set_categories, only: [:new, :edit]
   
   def index
     @jobs  = @company.jobs
@@ -54,6 +55,10 @@ class JobsController < ApplicationController
   def set_company
     @company = Company.find(params[:company_id])
   end
+
+  def set_categories
+    @categories = Category.all
+  end    
 
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city)

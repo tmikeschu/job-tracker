@@ -28,6 +28,12 @@
       <%= f.text_field :city, class: "form-control" %>
     </div>
 
+    <div class='input-group'>
+      <%= select_tag "job_category",
+                      options_from_collection_for_select(@categories, "id", "title"),
+                      class: "form-control" %>
+    </div>
+
       <%= f.submit class: "btn btn-primary" %>
     <% end %>
 </div>
