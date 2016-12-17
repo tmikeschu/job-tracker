@@ -15,7 +15,10 @@ class JobsController < ApplicationController
 
   def create
     @job = @company.jobs.new(job_params)
-    if @job.save
+    if job_params["category_id"] == ""
+      @errors = ["Please enter a category"]
+      render :edit
+    elsif @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
@@ -33,7 +36,10 @@ class JobsController < ApplicationController
 
   def update
     @company = @job.company
-    if @job.update(job_params)
+    if job_params["category_id"] == ""
+      @errors = ["Please enter a category"]
+      render :edit
+    elsif @job.update(job_params)
       flash[:success] = "#{@job.title} was updated!"
       redirect_to company_job_path(@job.company, @job)
     else

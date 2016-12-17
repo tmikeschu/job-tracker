@@ -27,12 +27,17 @@
       </span>
       <%= f.text_field :city, class: "form-control" %>
     </div>
+
     <% if @categories %>
       <div class='input-group'>
         <%= f.select :category_id,
                         options_from_collection_for_select(@categories, "id", "title"),
                         prompt: "-CATEGORY-",
                         class: "form-control" %>
+      </div>
+    <% else %>
+      <div class="input-group">
+          <%= "No categories available. Please create a new category." %>
       </div>
     <% end %>
 
