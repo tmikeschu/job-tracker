@@ -20,6 +20,12 @@ body {
   background-color: rgba(16, 91, 99, .6);
 }
 
+.index {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .navbar-default .navbar-brand {
   color: rgb(255, 250, 213);
   font-size: 40px;
@@ -31,7 +37,7 @@ body {
 }
 
 .list-group {
-  padding-left: 25px;
+  font-size: 24px;
 }
 
 li a {
@@ -50,6 +56,7 @@ li a {
 
 .list-group-item {
   background-color: rgba(189, 73, 50, .3);
+  margin-top: 20px;
 }
 
 .header-background {
@@ -59,9 +66,8 @@ li a {
 }
 
 .form {
-  /*padding-left: 500px;*/
   width: 1000px;
-  margin: 0 550px;
+  margin-left: 260px;
 }
 
 .button-trio {
