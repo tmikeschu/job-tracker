@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
+      flash[:success] = "#{@category.title} was created!"
       redirect_to categories_path
     else
       @errors = @category.errors.full_messages
@@ -29,6 +30,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
+      flash[:success] = "#{@category.title} was updated!"
       redirect_to categories_path
     else
       @errors = @category.errors.full_messages
@@ -38,6 +40,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
+    flash[:success] = "#{@category.title} was deleted."
     redirect_to categories_path
   end
 

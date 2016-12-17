@@ -35,9 +35,9 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @company = @job.company
     if @job.update(job_params)
+      flash[:success] = "#{@job.title} was updated!"
       redirect_to company_job_path(@job.company, @job)
     else
-      # require 'pry'; binding.pry
       @errors = @job.errors.full_messages
       render :edit
     end
