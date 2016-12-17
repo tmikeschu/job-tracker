@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   end
 
   resources :categories, except: [:patch]
+
+  resources :jobs, only: [] do
+    resource :comments, only: [:create]
+  end
 end

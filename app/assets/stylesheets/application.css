@@ -49,9 +49,19 @@ li a {
   margin: 5px;
 }
 
+.single-button {
+  margin: 0 auto;
+  width: 25%
+}
+
 #job-index {
   width: 700px;
   text-align: center;
+}
+
+.comment-list {
+  width: 70%;
+  margin: 0 auto;
 }
 
 .list-group-item {

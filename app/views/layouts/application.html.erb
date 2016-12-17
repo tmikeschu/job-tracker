@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">JTrack</a>
+          <a class="navbar-brand" href="<%= companies_path %>">JTrack</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,7 +35,7 @@
                 <li>
                   <%= link_to "All Companies", companies_path %>
                 </li> 
-                <% Company.all.each do |company| %>
+                <% companies.each do |company| %>
                   <li>
                     <%= link_to company.name, company_path(company)%>
                   </li>
@@ -48,7 +48,7 @@
                 <li>
                   <%= link_to "All Categories", categories_path %>
                 </li> 
-                <% Category.all.each do |category| %>
+                <% categories.each do |category| %>
                   <li>
                     <%= link_to category.title, category_path(category)%>
                   </li>
@@ -62,7 +62,7 @@
 
     <div class='container'>
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: name %>
+        <%= content_tag :div, msg, class: "alert alert-success", role: "alert" %>
       <% end %>
 
       <%= yield %>
