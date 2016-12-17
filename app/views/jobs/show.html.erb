@@ -1,11 +1,16 @@
 <% @title = "JTrack | #{@job.title} @ #{@job.company.name}" %>
 
 <div class='container'>
+  <% if @errors %>
+    <%= render partial: "shared/errors"%>
+  <% end %>
+
   <div class="container header-background">
     <h1 class="page-header">
     <%= @job.title %> at <%= @job.company.name %>
     </h1>
   </div>
+
   <ul class="list-group">
     <li class="list-group-item">
       Description: <%= @job.description %>
@@ -20,6 +25,7 @@
       Category: <%= @job.category.title if @job.category %>
     </li>
   </ul>
+
   <div class="container button-trio">
     <%= link_to "Back to #{@job.company.name}",
                 company_path(@job.company),
@@ -32,6 +38,12 @@
                 method: :delete,
                 class: "btn btn-danger col-md-3" %>
   </div>
+
+  <ul class='list-group'>
+    <%= render partial: "jobs/comment",
+           collection: @job.comments.reverse %>
+  </ul>
+  
   <div class="container">
     <%= render partial: "comments/form" %>
   </div>
