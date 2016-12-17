@@ -3,6 +3,7 @@ body {
   color: rgba(16, 91, 99, 1);
   background-color: rgba(219, 158, 54, .2);
   /*background-color: #105B63;*/
+  padding-top: 70px;
 }
 
 .container {
