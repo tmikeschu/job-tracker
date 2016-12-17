@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :destroy]
+  before_action :set_category, only: [:show, :edit, :destroy, :update]
   def index
     @categories = Category.all
   end
@@ -23,6 +23,15 @@ class CategoriesController < ApplicationController
   end 
 
   def edit
+  end
+
+  def update
+    if @category.update(category_params)
+      redirect_to categories_path
+    else
+      @errors = @category.errors.full_messages
+      render :edit
+    end
   end
 
   private
