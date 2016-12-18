@@ -1,4 +1,4 @@
-<div class='container'>
+<div class='container-fluid'>
   <%= form_for [@company, @job] do |f| %>
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">
@@ -37,13 +37,20 @@
       </div>
     <% else %>
       <div class="input-group">
-          <%= "No categories available. Please create a new category." %>
+          <p class="form-control">
+            <%= "No categories available. Please create a new category." %>
+          </p>
       </div>
     <% end %>
-
-    <%= f.submit class: "btn btn-primary" %>
-    <%= link_to "Create a New Category",
-                new_category_path,
-                class: "btn btn-success" %>
+    <div class='container-fluid'>
+      <div class='col-md-6'>
+        <%= f.submit class: "btn btn-primary btn-block" %>
+      </div>
+      <div class='col-md-6'>
+        <%= link_to "Create a New Category",
+                    new_category_path,
+                    class: "btn btn-success btn-block" %>
+      </div>
+    </div>
   <% end %>
 </div>

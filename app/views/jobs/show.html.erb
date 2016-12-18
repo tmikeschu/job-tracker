@@ -1,12 +1,12 @@
 <% @title = "JTrack | #{@job.title} @ #{@job.company.name}" %>
 
-<div class='container'>
+<div class='container-fluid center-block'>
   <% if @errors %>
     <%= render partial: "shared/errors"%>
   <% end %>
 
-  <div class="container header-background">
-    <h1 class="page-header">
+  <div class="container-fluid header-background">
+    <h1 class="page-header text-center">
     <%= @job.title %> at <%= @job.company.name %>
     </h1>
   </div>
@@ -26,26 +26,37 @@
     </li>
   </ul>
 
-  <div class="container button-trio">
-    <%= link_to "Back to #{@job.company.name}",
-                company_path(@job.company),
-                class: "btn btn-primary col-md-3"%>
-    <%= link_to "Edit",
-                edit_company_job_path(@job.company, @job),
-                class: "btn btn-warning col-md-3"%>
+  <div class="row text-center">
+    <div class='col-md-4'>
+      <%= link_to "Back to #{@job.company.name}",
+                  company_path(@job.company),
+                  class: "btn btn-primary"%>
+    </div>
 
-    <%= link_to "Delete", company_job_path(@job.company, @job),
-                method: :delete,
-                class: "btn btn-danger col-md-3" %>
+    <div class='col-md-4'>
+      <%= link_to "Edit",
+                  edit_company_job_path(@job.company, @job),
+                  class: "btn btn-warning"%>
+    </div>
+
+    <div class='col-md-4'>
+      <%= link_to "Delete", company_job_path(@job.company, @job),
+                  method: :delete,
+                  class: "btn btn-danger" %>
+    </div>
+
   </div>
 
-  <ul class='list-group comment-list text-center'>
-    <h2 class="page-header">
-      Comments
-    </h2>
-    <%= render partial: "jobs/comment",
-           collection: @job.comments.reverse %>
-           
-    <%= render partial: "comments/form" %>
-  </ul>
+  <div class="container-fluid">
+    <ul class='list-group center-block text-center'>
+      <h2 class="page-header">
+        Comments
+      </h2>
+      <div class="container-fluid" >
+        <%= render partial: "jobs/comment",
+              collection: @job.comments.reverse %>
+      </div>
+      <%= render partial: "comments/form" %>
+    </ul>
+  </div>
 </div>
