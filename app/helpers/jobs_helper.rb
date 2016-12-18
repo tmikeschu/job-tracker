@@ -30,4 +30,8 @@ module JobsHelper
     @errors = job.errors.full_messages
     render :edit
   end
+
+  def full_name(contact)
+    "#{contact.first_name.capitalize} #{contact.last_name.capitalize}"
+  end
 end
