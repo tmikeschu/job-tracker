@@ -8,7 +8,6 @@ class JobsController < ApplicationController
     @jobs  = @company.jobs
     @contact = Contact.new
     @contacts = @company.contacts
-    @title = "JTrack | Jobs @ #{@company.name}"
   end
 
   def new
