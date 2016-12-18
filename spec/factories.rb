@@ -67,6 +67,12 @@ FactoryGirl.define do
       "#{Faker::Company.name} #{n}"
     end
 
+    factory :company_with_jobs do
+      after(:create) do |company|
+        company.jobs = create_list(:job_with_category, 10)
+      end
+    end
+
     factory :company_with_jobs_and_contacts do
       after(:create) do |company|
         company.jobs = create_list(:job_with_category, 10)
