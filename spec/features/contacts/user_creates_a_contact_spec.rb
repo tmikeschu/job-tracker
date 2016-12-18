@@ -22,7 +22,9 @@ RSpec.feature "User creates a contact" do
     fill_in "contact_last_name", with: last_name
     fill_in "contact_email", with: email
     click_on "Create Contact"
-    expect(current_path).to eq company_path(@company)
+    save_and_open_page
+    expect(current_path).to eq company_jobs_path(@company)
+    #add table views iteration in jobs index view
     expect(page).to have_content first_name
     expect(page).to have_content last_name
     expect(page).to have_content email
