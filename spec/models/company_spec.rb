@@ -28,5 +28,7 @@ describe Company do
       company = Company.new(name: "Dropbox")
       expect(company).to respond_to(:jobs)
     end
+
+    it {should respond_to(:contacts)}
   end
 end

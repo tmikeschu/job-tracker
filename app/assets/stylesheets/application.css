@@ -9,7 +9,7 @@ body {
   font-family: "Quicksand", sans-serif;
   color: rgba(16, 91, 99, 1);
   background-color: rgba(219, 158, 54, .2);
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .container {
@@ -17,7 +17,15 @@ body {
 }
 
 .navbar {
-  background-color: rgba(16, 91, 99, .6);
+  background-color: rgba(16, 91, 99, .9);
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: rgb(255, 250, 213);
+}
+
+.dropdown-toggle {
+  text-align: center;
 }
 
 .index {
@@ -44,14 +52,8 @@ li a {
   color: rgba(16, 91, 99, 1);
 }
 
-.btn .col-md-2 {
-  padding: 10px;
-  margin: 5px;
-}
-
-.single-button {
-  margin: 0 auto;
-  width: 25%
+li a:hover {
+  color: rgba(255, 250, 213, .7);
 }
 
 #job-index {
@@ -59,9 +61,10 @@ li a {
   text-align: center;
 }
 
-.comment-list {
-  width: 70%;
-  margin: 0 auto;
+#comment-list {
+  border: 2px solid rgba(189, 73, 50, .8);
+  border-radius: 5px;
+  margin-bottom: 30px;
 }
 
 .list-group-item {
@@ -70,40 +73,40 @@ li a {
 }
 
 .header-background {
-  background-color: rgba(189, 73, 50, .30);
+  padding: 5px;
+  background-color: rgba(219, 158, 54, .6);
   border-radius: 5px;
   color: inherit;
 }
 
-.form {
-  width: 1000px;
-  margin-left: 260px;
+#job-form {
+  width: 75%;
 }
 
-.button-trio {
-  text-align: center;
-  margin-left: 100px;
+#company-form {
+  width: 50%;
 }
 
-.button-duo {
-  margin-left: 125px;
+#category-form {
+  width: 50%;
 }
 
 .btn {
   margin: 5px;
 }
 
-.col-md-3 {
-  margin: 0 10px;
-}
-
 .input-group {
-  width: 500px;
+  width: 100%;
 }
 
 .input-group-addon {
   text-align: right;
   width: 150px;
+}
+
+.table {
+  background-color: rgba(255, 250, 213, .7);
+  border-radius: 5px;
 }
 
 

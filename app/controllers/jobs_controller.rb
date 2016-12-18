@@ -6,6 +6,8 @@ class JobsController < ApplicationController
   
   def index
     @jobs  = @company.jobs
+    @contact = Contact.new
+    @contacts = @company.contacts
     @title = "JTrack | Jobs @ #{@company.name}"
   end
 

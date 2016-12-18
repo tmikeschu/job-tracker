@@ -1,6 +1,24 @@
 require 'factory_girl_rails'
 
 FactoryGirl.define do
+  factory :contact do
+    sequence :first_name do
+      Faker::Name.first_name
+    end
+
+    sequence :last_name do 
+      Faker::Name.last_name
+    end
+
+    sequence :position do
+      Faker::Name.title
+    end
+
+    sequence :email do
+      Faker::Internet.email
+    end
+  end
+
   factory :category do
     sequence :title do |n|
       "#{Faker::Company.name} #{n}"
@@ -52,6 +70,13 @@ FactoryGirl.define do
     factory :company_with_jobs do
       after(:create) do |company|
         company.jobs = create_list(:job_with_category, 10)
+      end
+    end
+
+    factory :company_with_jobs_and_contacts do
+      after(:create) do |company|
+        company.jobs = create_list(:job_with_category, 10)
+        company.contacts = create_list(:contact, 10)
       end
     end
   end
