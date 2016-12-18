@@ -39,7 +39,15 @@
           <th>Position</th>
           <th>Email</th>
         </tr>
-        <tr></tr>
+        <% if @contacts %>
+          <% @contacts.each do |contact| %>
+          <tr>
+            <td><%= contact.first_name + " " + contact.last_name %></td>
+            <td><%= contact.position %></td>
+            <td><%= contact.email %></td>
+          </tr>
+          <% end %>
+        <% end %>
       </table>
     </div>
     <%= render partial: "contacts/form" %>
