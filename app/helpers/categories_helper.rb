@@ -24,4 +24,8 @@ module CategoriesHelper
     flash[:success] = "#{@category.title} was deleted."
     redirect_to categories_path
   end
+
+  def job_and_company(job)
+    "#{job.title} @ #{job.company.name}"
+  end
 end
