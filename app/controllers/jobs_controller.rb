@@ -31,16 +31,7 @@ class JobsController < ApplicationController
 
   def update
     @company = @job.company
-    if job_params["category_id"] == ""
-      @errors = ["Please enter a category"]
-      render :edit
-    elsif @job.update(job_params)
-      flash[:success] = "#{@job.title} was updated!"
-      redirect_to company_job_path(@job.company, @job)
-    else
-      @errors = @job.errors.full_messages
-      render :edit
-    end
+    update_job(@job, job_params)
   end
 
   def destroy
