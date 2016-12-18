@@ -21,7 +21,6 @@ body {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  /*background-color: #888;*/
   background-color: rgb(255, 250, 213);
 }
 
@@ -53,6 +52,10 @@ li a {
   color: rgba(16, 91, 99, 1);
 }
 
+li a:hover {
+  color: rgba(255, 250, 213, .7);
+}
+
 #job-index {
   width: 700px;
   text-align: center;
@@ -70,6 +73,7 @@ li a {
 }
 
 .header-background {
+  padding: 5px;
   background-color: rgba(219, 158, 54, .6);
   border-radius: 5px;
   color: inherit;
@@ -98,6 +102,11 @@ li a {
 .input-group-addon {
   text-align: right;
   width: 150px;
+}
+
+.table {
+  background-color: rgba(255, 250, 213, .7);
+  border-radius: 5px;
 }
 
 

@@ -22,7 +22,7 @@
       City: <%= @job.city %>
     </li>
     <li class='list-group-item'>
-      Category: <%= @job.category.title if @job.category %>
+      Category: <%= link_to @job.category.title, category_path(@job.category) if @job.category %>
     </li>
   </ul>
 
