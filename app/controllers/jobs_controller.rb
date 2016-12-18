@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  include JobsHelper
   
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_company, only: [:index, :new, :create]
@@ -16,16 +17,7 @@ class JobsController < ApplicationController
 
   def create
     @job = @company.jobs.new(job_params)
-    if job_params["category_id"] == ""
-      @errors = ["Please enter a category"]
-      render :edit
-    elsif @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
-    else
-      @errors = @job.errors.full_messages
-      render :new
-    end
+    save_job(@job, job_params)
   end
 
   def show
