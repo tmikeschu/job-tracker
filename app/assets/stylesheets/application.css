@@ -10,7 +10,7 @@ body {
   color: rgba(16, 91, 99, 1);
   background: rgba(219, 158, 54, .2);
   /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(rgb(219, 158, 54, .2), rgba(16, 91, 99, .25));
+  background: -webkit-linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25));
   /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25));
   /* For Opera 11.1 to 12.0 */
