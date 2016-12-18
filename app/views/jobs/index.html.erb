@@ -1,4 +1,7 @@
 <div class="container-fluid center-block text-center" id="">
+  <% if @errors %>
+    <%= render partial: "shared/errors"%>
+  <% end %>
   <h1 class="page-header header-background">
     <strong><%= @company.name %></strong>
   </h1>
@@ -33,21 +36,25 @@
       Contacts
     </h2>
     <div class='table-responsive'>
-      <table class="table table-striped">
-        <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Email</th>
-        </tr>
-        <% if @contacts %>
-          <% @contacts.each do |contact| %>
+      <table class="table table-striped text-left">
+        <thead>
           <tr>
-            <td><%= contact.first_name + " " + contact.last_name %></td>
-            <td><%= contact.position %></td>
-            <td><%= contact.email %></td>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Email</th>
           </tr>
+        </thead>
+        <tbody>
+          <% if @contacts %>
+            <% @contacts.each do |contact| %>
+            <tr>
+              <td><%= contact.first_name + " " + contact.last_name %></td>
+              <td><%= contact.position %></td>
+              <td><%= contact.email %></td>
+            </tr>
+            <% end %>
           <% end %>
-        <% end %>
+        </tbody>
       </table>
     </div>
     <%= render partial: "contacts/form" %>
