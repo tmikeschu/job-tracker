@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :companies, except: [:patch] do
     resources :jobs, except: [:patch]
+    resources :contacts, only: [:create]
   end
 
   resources :categories, except: [:patch]
