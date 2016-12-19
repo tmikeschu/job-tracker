@@ -3,7 +3,7 @@
     All Categories
   </h1>
   <ul class="list-group">
-    <% @categories.each do |category| %>
+    <% alphabetical_categories.each do |category| %>
       <li class="list-group-item">
         <%= link_to category.title, category_path(category) %>
       </li>

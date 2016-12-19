@@ -28,4 +28,7 @@ module CategoriesHelper
   def job_and_company(job)
     "#{job.title} @ #{job.company.name}"
   end
+  def alphabetical_categories
+    Category.order(:title)
+  end
 end
