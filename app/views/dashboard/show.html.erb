@@ -1,0 +1,17 @@
+<div class="container-fluid center-block">
+  <h1 class="page-header">
+    JTrack Dashboard
+  </h1>
+
+  <ul class='list-group'>
+    <% @interest_level_and_jobs.each do |level, count| %>
+      <li class="list-group-item col-md-6">
+        <%= "Jobs with interest level #{level}: #{count}"%>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="container-fluid">
+    <%= top_three_companies_by_interest_level %>
+  </div>
+</div>
