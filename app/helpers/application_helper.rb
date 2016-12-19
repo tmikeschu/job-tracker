@@ -1,10 +1,10 @@
 module ApplicationHelper
   def companies
-    Company.all
+    Company.order(:name)
   end
 
   def categories
-    Category.all
+    Category.order(:title)
   end
 
   def cities
