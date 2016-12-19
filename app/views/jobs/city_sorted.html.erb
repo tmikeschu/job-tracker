@@ -1,0 +1,15 @@
+<div class='container-fluid' >
+  <h1>
+    Jobs by City
+  </h1>
+  <% @cities.each do |city| %>
+    <div class="center-block container-fluid">
+    <h3><%= city %></h3>
+    <ul class='list-group center-block'>
+      <% @jobs.where(city: city).each do |job| %>
+        <li class="list-group-item col-md-4"><%= link_to job.title, company_job_path(job.company, job) %></li>
+      <% end %>
+    </ul>
+    </div><br/>
+  <% end %>
+</div>
