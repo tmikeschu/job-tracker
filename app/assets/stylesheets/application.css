@@ -24,6 +24,14 @@ body {
   background-size: cover;
 }
 
+.jumbotron .container-fluid {
+  border: 2px solid rgba(189, 73, 50, .5);
+  background: rgba(189, 73, 50, .1);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+}
+
 .container {
   margin: 10px auto;
 }
