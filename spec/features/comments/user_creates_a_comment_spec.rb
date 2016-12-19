@@ -34,8 +34,8 @@ RSpec.feature "User creates a comment" do
       comment2 = "Reallllllly excited about this one!"
       fill_in "comment_content", with: comment2
       click_on "Create Comment"
-      expectA(page.find("li:nth-type(1)").text).to have_content comment2
-      expect(page.find("li:nth-type(2)").text).to have_content comment1
+      expect(page.find("#comment-list:nth-child(1)").text).to have_content comment2
+      expect(page.find("#comment-list:nth-child(2)").text).to have_content comment
     end
   end
 end
