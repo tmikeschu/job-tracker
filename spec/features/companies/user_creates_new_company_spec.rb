@@ -33,7 +33,7 @@ RSpec.feature "User creates a new company" do
       click_on "Add New Company"
       fill_in "company_name", with: "ESPN"
       click_on "Create"
-      expect(page).to have_content "Name has already been taken"
+      expect(page).to have_content "That name has already been taken"
     end
   end
 

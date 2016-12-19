@@ -40,7 +40,7 @@ RSpec.feature "User creates a contact" do
       fill_in "contact_position", with: "position"
       fill_in "contact_email", with: @email
       click_on "Create Contact"
-      expect(page).to have_content "Whoops! Email has already been taken."
+      expect(page).to have_content "Whoops! That email has already been taken."
       expect(page).to have_content @first_name
       expect(page).to have_content @last_name
       expect(page).to have_content @position
