@@ -16,10 +16,12 @@ body {
   /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25));
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25));
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25)) no-repeat center center fixed;
   padding-top: 50px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .container {
