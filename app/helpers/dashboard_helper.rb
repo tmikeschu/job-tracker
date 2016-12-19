@@ -4,7 +4,7 @@ module DashboardHelper
     output = interest_count.reduce({}) do |result, company|
       result[Company.find(company.first).name] = company.last.to_i
       result
-    end.map {|company, level| "#{company}: #{level}"}.join(", ")
+    end
   end
 
   def city_jobs_count
