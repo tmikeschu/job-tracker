@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User updates a category" do
   before do
-    categories = create_list(:category, 2)
+    categories = create_list(:category, 2).sort_by {|cat| cat.title }
     @category1 = categories.first
     @category2 = categories.last
     visit categories_path

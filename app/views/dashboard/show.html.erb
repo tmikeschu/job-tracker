@@ -1,0 +1,53 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="page-header">
+      Welcome to JTrack <small>let's get you hired</small>
+    </h1>
+
+    <div class="container-fluid">
+      <h2>
+        Job Count by Level of Interest
+      </h2>
+      <table class="table table-bordered text-center">
+        <thead>
+          <th>Interest Level Range</th>
+          <% interest_ranges.each do |range| %>
+            <td><%= range %></td>
+          <% end %>
+        </thead>
+        <tbody>
+          <th>Number of Jobs</th>
+          <% jobs_in_range.each do |count| %>
+            <td><%= count %></td>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="container-fluid">
+      <h2>
+        Top Companies by Average Level of Interest
+      </h2>
+      <% top_three_companies_by_interest_level.each do |company, level| %>
+        <div class="col-md-4 text-center">
+          <h3>
+            <%= link_to company, company_path(Company.find_by(name: company)) %>: <%= level %>
+          </h3>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="container-fluid">
+      <h2>
+        Job Count by City
+      </h2>
+      <ul class="list-group text-center">
+        <% city_jobs_count.each do |city, count| %>
+          <li class="list-group-item col-md-4">
+            <%= link_to city, "jobs?location=#{city}" %>: <%= count %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

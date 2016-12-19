@@ -10,13 +10,15 @@
     <h2 class="page-header">
       Jobs
     </h2>
+
     <ul class="list-group">
-      <% @jobs.each do |job| %>
+      <% alphabetize_jobs(@jobs).each do |job| %>
         <li class="list-group-item">
           <%= link_to job.title, company_job_path(@company, job) %>
         </li>
       <% end %>
     </ul>
+
     <div class="row">
       <div class="col-md-6">
         <%= link_to "Back to All Companies",
@@ -48,7 +50,7 @@
           <% if @contacts %>
             <% @contacts.each do |contact| %>
             <tr>
-              <td><%= contact.first_name + " " + contact.last_name %></td>
+              <td><%= full_name(contact) %></td>
               <td><%= contact.position %></td>
               <td><%= contact.email %></td>
             </tr>

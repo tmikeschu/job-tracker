@@ -4,12 +4,13 @@
   </h1>
 
   <ul class="list-group">
-    <% @jobs.each do |job| %>
+    <% alphabetize_jobs(@jobs).each do |job| %>
       <li class="list-group-item">
-        <%= link_to "#{job.title} @ #{job.company.name}", company_job_path(job.company, job) %>
+        <%= link_to job_and_company(job), company_job_path(job.company, job) %>
       </li>
     <% end %>
   </ul>
+  
   <%= link_to "Back to All Categories",
               categories_path,
               class: "btn btn-primary" %>

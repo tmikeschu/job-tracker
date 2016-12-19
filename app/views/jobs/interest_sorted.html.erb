@@ -1,0 +1,17 @@
+<div class='container-fluid center-block' >
+  <h1>
+    Jobs by Interest Level
+  </h1>
+  <% levels_of_interest.each do |level| %>
+    <div class="center-block container-fluid">
+      <h3>Level <%= level %></h3>
+      <ul class='list-group center-block'>
+        <% jobs_with_level_of_interest(level).each do |job| %>
+          <li class="list-group-item col-md-6">
+            <%= link_to job.title, company_job_path(job.company, job) %>
+          </li>
+        <% end %>
+      </ul>
+    </div><br/>
+  <% end %>
+</div>

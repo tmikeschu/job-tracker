@@ -1,14 +1,12 @@
 class JobsController < ApplicationController
+  include JobsHelper
   
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_company, only: [:index, :new, :create]
   before_action :set_categories, only: [:new, :edit]
   
   def index
-    @jobs  = @company.jobs
-    @contact = Contact.new
-    @contacts = @company.contacts
-    @title = "JTrack | Jobs @ #{@company.name}"
+    decide_which_index(params)
   end
 
   def new
@@ -17,16 +15,7 @@ class JobsController < ApplicationController
 
   def create
     @job = @company.jobs.new(job_params)
-    if job_params["category_id"] == ""
-      @errors = ["Please enter a category"]
-      render :edit
-    elsif @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
-    else
-      @errors = @job.errors.full_messages
-      render :new
-    end
+    save_job(@job, job_params)
   end
 
   def show
@@ -40,16 +29,7 @@ class JobsController < ApplicationController
 
   def update
     @company = @job.company
-    if job_params["category_id"] == ""
-      @errors = ["Please enter a category"]
-      render :edit
-    elsif @job.update(job_params)
-      flash[:success] = "#{@job.title} was updated!"
-      redirect_to company_job_path(@job.company, @job)
-    else
-      @errors = @job.errors.full_messages
-      render :edit
-    end
+    update_job(@job, job_params)
   end
 
   def destroy
@@ -63,7 +43,7 @@ class JobsController < ApplicationController
   end
 
   def set_company
-    @company = Company.find(params[:company_id])
+    @company = Company.find(params[:company_id]) if params[:company_id]
   end
 
   def set_categories

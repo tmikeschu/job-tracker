@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User deletes a category" do
   before do
-    categories = create_list(:category, 5)
+    categories = create_list(:category, 5).sort_by{|cat| cat.title }
     @category  = categories.first
     visit categories_path
   end

@@ -25,4 +25,17 @@ RSpec.feature "User creates a comment" do
       expect(page).to have_content "Whoops! Content can't be blank"
     end
   end
+
+  context "when multiple comments exist" do
+    scenario "they are listed in reverse chronological order" do
+      comment = "Really excited about this one!"
+      fill_in "comment_content", with: comment
+      click_on "Create Comment"
+      comment2 = "Reallllllly excited about this one!"
+      fill_in "comment_content", with: comment2
+      click_on "Create Comment"
+      expectA(page.find("li:nth-type(1)").text).to have_content comment2
+      expect(page.find("li:nth-type(2)").text).to have_content comment1
+    end
+  end
 end

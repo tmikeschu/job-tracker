@@ -1,9 +1,9 @@
 class CompaniesController < ApplicationController
+  include CompaniesHelper
 
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   def index
-    @companies = Company.all
   end
 
   def new
@@ -12,13 +12,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    if @company.save
-      flash[:success] = "#{@company.name} added!"
-      redirect_to company_path(@company)
-    else
-      @errors = @company.errors.full_messages
-      render :new
-    end
+    save_company(@company)
   end
 
   def show
@@ -29,21 +23,11 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    @company.update(company_params)
-    if @company.save
-      flash[:success] = "#{@company.name} updated!"
-      redirect_to company_path(@company)
-    else
-      @errors = @company.errors.full_messages
-      render :edit
-    end
+    update_company(@company, company_params)
   end
 
   def destroy
-    @company.destroy
-
-    flash[:success] = "#{@company.name} was successfully deleted!"
-    redirect_to companies_path
+    destroy_company(@company)
   end
 
     private
