@@ -17,6 +17,8 @@ body {
   background: -moz-linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25));
   /* For Firefox 3.6 to 15 */
   background: linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25));
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-top: 50px;
 }
 
@@ -48,6 +50,11 @@ body {
 }
 
 .navbar-right .dropdown .dropdown-toggle {
+  font-size: 20px;
+  color: rgb(255, 250, 213);
+}
+
+.navbar-default .navbar-nav>li>a {
   font-size: 20px;
   color: rgb(255, 250, 213);
 }
