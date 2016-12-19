@@ -32,6 +32,8 @@ gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+  gem 'faker'
+  gem 'factory_girl_rails', "~> 4.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,9 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'factory_girl_rails', "~> 4.0"
   gem 'database_cleaner'
-  gem 'faker'
   gem 'pry'
   gem 'shoulda-matchers', '~> 3.1'
 end
