@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.feature "User creates a category" do
   scenario "a user creates a new category" do
     visit categories_path
-    click_on "New Category"
+    within "div.index" do
+      click_on "New Category"
+    end
     fill_in "category_title", with: "Web Development"
     click_on "Create Category"
     expect(current_path).to eq categories_path
@@ -13,7 +15,9 @@ RSpec.feature "User creates a category" do
   context "when they enter nothing for title" do
     scenario "they see an error message" do
       visit categories_path
-      click_on "New Category"
+      within "div.index" do
+        click_on "New Category"
+      end
       fill_in "category_title", with: ""
       click_on "Create Category"
       expect(page).to have_content "Whoops!"
@@ -25,7 +29,9 @@ RSpec.feature "User creates a category" do
     scenario "they see an error message" do
       category = create(:category)
       visit categories_path
-      click_on "New Category"
+      within "div.index" do
+        click_on "New Category"
+      end
       fill_in "category_title", with: category.title
       click_on "Create Category"
       expect(page).to have_content "Whoops!"
