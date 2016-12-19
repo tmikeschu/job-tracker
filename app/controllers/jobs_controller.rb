@@ -6,14 +6,16 @@ class JobsController < ApplicationController
   before_action :set_categories, only: [:new, :edit]
   
   def index
+    @jobs = Job.all
     if params[:sort] == "location"
-      @jobs = Job.all
       @cities = Job.pluck(:city)
       render :city_sorted
     elsif params[:sort] == "interest"
-      @jobs = Job.all
       @levels_of_interest = Job.pluck(:level_of_interest)
       render :interest_sorted
+    elsif params[:location]
+      @city = params[:location]
+      render :location 
     else
       @jobs  = @company.jobs
       @contact = Contact.new
