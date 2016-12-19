@@ -1,17 +1,43 @@
-<div class="container-fluid center-block">
-  <h1 class="page-header">
-    JTrack Dashboard
-  </h1>
+<div class="jumbotron">
+  <div class="container-fluid center-block">
+    <h1 class="page-header">
+      Welcome to JTrack
+    </h1>
 
-  <ul class='list-group'>
-    <% @interest_level_and_jobs.each do |level, count| %>
-      <li class="list-group-item col-md-6">
-        <%= "Jobs with interest level #{level}: #{count}"%>
-      </li>
-    <% end %>
-  </ul>
+    <div class="container-fluid">
+      <h2>
+        Job Count by Level of Interest
+      </h2>
+      <p>There are <%= @jobs.where("level_of_interest > ?", 90).count %> jobs with an interest level over 90. </p>
+      <p>...<%= @jobs.where(level_of_interest: (70..89)).count %> jobs with an interest level between 70 and 89. </p>
+      <p>...<%= @jobs.where(level_of_interest: (30..69)).count %> jobs with an interest level between 30 and 69. </p>
+      <p>...and <%= @jobs.where(level_of_interest: (0..29)).count %> jobs with an interest level between 0 and 29. </p>
+    </div>
+    
+    <div class="container-fluid">
+      <h2>
+        Top Companies by Average Level of Interest
+      </h2>
+      <% top_three_companies_by_interest_level.each do |company, level| %>
+        <div class="col-md-4">
+          <h3>
+            <%= link_to company, company_path(Company.find_by(name: company)) %>: <%= level %>
+          </h3>
+        </div>
+      <% end %>
+    </div>
 
-  <div class="container-fluid">
-    <%= top_three_companies_by_interest_level %>
+    <div class="container-fluid">
+      <h2>
+        Job Count by City
+      </h2>
+      <ul class="list-group text-center">
+        <% Job.group(:city).count.each do |city, count| %>
+          <li class="list-group-item col-md-4">
+            <%= link_to city, "jobs?location=#{city}" %>: <%= count %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
