@@ -17,7 +17,7 @@
       Level of Interest: <%= @job.level_of_interest %>
     </li>
     <li class="list-group-item">
-      City: <%= @job.city %>
+      City: <%= link_to @job.city, "/jobs?location=#{@job.city}" %>
     </li>
     <li class='list-group-item'>
       Category: <%= link_to @job.category.title, category_path(@job.category) if @job.category %>
