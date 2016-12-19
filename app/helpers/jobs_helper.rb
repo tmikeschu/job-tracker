@@ -46,9 +46,9 @@ module JobsHelper
   end
 
   def cities
-    Job.pluck(:city)
+    Job.order(:city).distinct.pluck(:city)
   end
-
+  
   def decide_which_index(params)
     @jobs = Job.all
     return sorted_jobs(params) if params[:sort]
