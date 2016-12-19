@@ -42,7 +42,7 @@ module JobsHelper
   end
 
   def levels_of_interest
-    Job.pluck(:level_of_interest).sort.reverse
+    Job.pluck(:level_of_interest).uniq.sort.reverse
   end
 
   def cities
@@ -66,5 +66,9 @@ module JobsHelper
   def location_jobs(params)
     @city = params[:location]
     render :location
+  end
+
+  def alphabetize_jobs(jobs)
+    jobs.order(:title)
   end 
 end

@@ -12,7 +12,7 @@
     </h2>
 
     <ul class="list-group">
-      <% @jobs.each do |job| %>
+      <% alphabetize_jobs(@jobs).each do |job| %>
         <li class="list-group-item">
           <%= link_to job.title, company_job_path(@company, job) %>
         </li>
