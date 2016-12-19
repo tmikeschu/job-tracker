@@ -24,4 +24,8 @@ module CompaniesHelper
     flash[:success] = "#{company.name} was successfully deleted!"
     redirect_to companies_path
   end
+
+  def alphabetical_companies
+    Company.order(:name)
+  end
 end

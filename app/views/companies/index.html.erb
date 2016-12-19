@@ -3,7 +3,7 @@
     All Companies
   </h1>
 
-  <% @companies.each do |company| %>
+  <% alphabetical_companies.each do |company| %>
     <ul class='list-group company_<%= company.id %>'>
       
       <li class="list-group-item">
@@ -24,5 +24,5 @@
 
     </ul>
   <% end %>
-    <%= link_to "Add New Company", new_company_path, class: "btn btn-success btn-lg" %>
+  <%= link_to "Add New Company", new_company_path, class: "btn btn-success btn-lg" %>
 </div>
