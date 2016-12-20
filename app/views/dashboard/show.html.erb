@@ -8,20 +8,22 @@
       <h2>
         Job Count by Level of Interest
       </h2>
-      <table class="table table-bordered text-center">
-        <thead>
-          <th>Interest Level Range</th>
-          <% interest_ranges.each do |range| %>
-            <td><%= range %></td>
-          <% end %>
-        </thead>
-        <tbody>
-          <th>Number of Jobs</th>
-          <% jobs_in_range.each do |count| %>
-            <td><%= count %></td>
-          <% end %>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-reflow text-center">
+          <thead>
+            <th>Interest Level Range</th>
+            <% interest_ranges.each do |range| %>
+              <td><%= range %></td>
+            <% end %>
+          </thead>
+          <tbody>
+            <th>Number of Jobs</th>
+            <% jobs_in_range.each do |count| %>
+              <td><%= count %></td>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
     
     <div class="container-fluid">
