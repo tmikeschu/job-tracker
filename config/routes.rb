@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   root to: "dashboard#show"
+
+  get '/login', to: "sessions#new"
+
+  resources :users, only: [:new, :create]
+
   get '/dashboard', to: "dashboard#show"
 
   resources :companies, except: [:patch] do
