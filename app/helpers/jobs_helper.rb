@@ -34,26 +34,26 @@ module JobsHelper
   end
 
   def jobs_in_city(city)
-    Job.where(city: city)
+    current_user.jobs.where(city: city)
   end
 
   def jobs_with_level_of_interest(level_of_interest)
-    Job.where(level_of_interest: level_of_interest)
+    current_user.jobs.where(level_of_interest: level_of_interest)
   end
 
   def levels_of_interest
-    Job.pluck(:level_of_interest).uniq.sort.reverse
+    current_user.jobs.pluck(:level_of_interest).uniq.sort.reverse
   end
 
   def cities
-    Job.order(:city).distinct.pluck(:city)
+    current_user.jobs.order(:city).distinct.pluck(:city)
   end
   
   def decide_which_index(params)
-    @jobs = Job.all
+    @jobs = current_user.jobs
     return sorted_jobs(params) if params[:sort]
     return location_jobs(params) if params[:location]
-    @jobs  = @company.jobs
+    @jobs  = current_user.jobs.where(company_id: @company.id)
     @contact = Contact.new
     @contacts = @company.contacts
   end

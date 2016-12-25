@@ -16,8 +16,9 @@ RSpec.feature "User sees analytics" do
     expect(page).to have_css "h3"
 
     expect(page).to have_content "Job Count by City"
-    expect(page).to have_css "li", text: @companies.first.jobs.first.city
+    expect(page).to have_css "li", text: @user.jobs.pluck(:city).first
     expect(Job.all).to_not eq @user.jobs
+    save_and_open_page
   end
 end
     

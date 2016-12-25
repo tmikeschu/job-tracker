@@ -4,10 +4,12 @@ module ApplicationHelper
   end
 
   def categories
-    Category.order(:title)
+    ids = current_user.jobs.pluck(:category_id)
+    ids.map { |id| Category.find(id) }.sort_by { |category| category.title }
   end
 
   def cities
-    Job.order(:city).distinct.pluck(:city)
+    byebug
+    current_user.jobs.order(:city).distinct.pluck(:city)
   end
 end
