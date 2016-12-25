@@ -3,4 +3,5 @@ class Contact < ActiveRecord::Base
   validates  :email, uniqueness: true
 
   belongs_to :company
+  belongs_to :user
 end
