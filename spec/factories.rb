@@ -17,6 +17,12 @@ FactoryGirl.define do
     sequence :password do
       Faker::Internet.password(10, 50)
     end
+
+    factory :full_user do
+      after(:create) do |user|
+        user.jobs = create_list(:job_with_company, 10)
+      end
+    end
   end
   
   factory :contact do
@@ -75,7 +81,7 @@ FactoryGirl.define do
 
     factory :job_with_company do
       after(:create) do |job|
-        job.company = create(:company)
+        job.company = create(:company_with_contacts)
       end
     end
   end
@@ -88,6 +94,12 @@ FactoryGirl.define do
     factory :company_with_jobs do
       after(:create) do |company|
         company.jobs = create_list(:job_with_category, 10)
+      end
+    end
+
+    factory :company_with_contacts do
+      after(:create) do |company|
+        company.contacts = create_list(:contact, 10)
       end
     end
 
