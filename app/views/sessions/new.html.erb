@@ -1,0 +1,11 @@
+<div class='center-block text-center' id="job-form">
+  <h1 class="page-header">
+    Log in to your account
+  </h1>
+
+  <% if @errors %>
+    <%= render partial: "shared/errors" %>
+  <% end %>
+
+  <%= render partial: "form" %>
+</div>
