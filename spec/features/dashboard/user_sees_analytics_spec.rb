@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "User sees analytics" do
   before do
     @companies = create_list(:company_with_jobs_and_contacts, 10)
-    @user = create(:user)
+    @user = create(:full_user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
   
@@ -17,6 +17,7 @@ RSpec.feature "User sees analytics" do
 
     expect(page).to have_content "Job Count by City"
     expect(page).to have_css "li", text: @companies.first.jobs.first.city
+    expect(Job.all).to_not eq @user.jobs
   end
 end
     
