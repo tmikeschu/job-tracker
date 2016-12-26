@@ -32,8 +32,7 @@ class CategoriesController < ApplicationController
 
   private
     def set_category
-      # byebug
-      @category = Category.joins(:jobs).where("jobs.user_id = ?", current_user.id).find(params[:id])
+      @category = current_user.categories.find(params[:id])
     end
   
     def category_params
