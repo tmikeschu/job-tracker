@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :contacts
 
   def companies
-    Companies.joins(:jobs).where("jobs.user_id = ?", current_user.id)
+    Companies.joins(:jobs).where("jobs.user_id = ?", id)
+  end
+
+  def categories
+    Category.joins(:jobs).where("jobs.user_id = ?", id)
   end
 end
