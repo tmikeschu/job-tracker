@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   
   has_many :jobs
   has_many :contacts
+
+  def companies
+    Companies.joins(:jobs).where("jobs.user_id = ?", current_user.id)
+  end
 end
