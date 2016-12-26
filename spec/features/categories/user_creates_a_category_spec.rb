@@ -12,7 +12,7 @@ RSpec.feature "User creates a category" do
     fill_in "category_title", with: "Web Development"
     click_on "Create Category"
     expect(current_path).to eq categories_path
-    expect(page).to have_link "Web Development", href: category_path(Category.first)
+    expect(page).to have_link @user.categories.first.title, href: category_path(@user.categories.first)
   end
 
   context "when they enter nothing for title" do
