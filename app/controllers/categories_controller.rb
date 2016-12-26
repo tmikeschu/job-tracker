@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @jobs = @category.jobs
+    @jobs = current_user.jobs.where(category_id: params[:id])
   end 
 
   def edit
