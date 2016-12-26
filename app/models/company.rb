@@ -4,4 +4,5 @@ class Company < ActiveRecord::Base
   
   has_many  :jobs, dependent: :destroy
   has_many  :contacts, dependent: :destroy
+  belongs_to :user
 end

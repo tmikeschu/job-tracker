@@ -30,5 +30,6 @@ describe Company do
     end
 
     it {should respond_to(:contacts)}
+    it {should belong_to(:user)}
   end
 end
