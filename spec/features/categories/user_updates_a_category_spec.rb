@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.feature "User updates a category" do
   before do
-    categories = create_list(:category, 2).sort_by {|cat| cat.title }
-    @category1 = categories.first
-    @category2 = categories.last
+    @user = create(:full_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    categories = @user.categories
+    @category1 = categories.order(:title).first
+    @category2 = categories.order(:title).last
     visit categories_path
     within "ul.list-group" do
       first(:link, "Edit").click
