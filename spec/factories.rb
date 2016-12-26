@@ -20,12 +20,20 @@ FactoryGirl.define do
 
     factory :full_user do
       after(:create) do |user|
-        user.jobs = create_list(:job_with_company, 10)
+        user.companies = create_list(:company, 2)
+        user.companies.first.jobs = create_list(:job, 5)
+        user.companies.last.jobs = create_list(:job, 5)
+        user.categories = create_list(:category, 3)
+        user.contacts = create_list(:contact, 3)
+        user.jobs = Job.joins(:company).where("companies.user_id = ?", user.id)
+        user.jobs.each {|job| job.category = user.categories.sample }
       end
     end
   end
   
   factory :contact do
+    user
+
     sequence :first_name do
       Faker::Name.first_name
     end
@@ -44,6 +52,8 @@ FactoryGirl.define do
   end
 
   factory :category do
+    user 
+
     sequence :title do |n|
       "#{Faker::Company.name} #{n}"
     end
@@ -88,6 +98,8 @@ FactoryGirl.define do
   end
 
   factory :company do
+    user
+    
     sequence :name do |n|
       "#{Faker::Company.name} #{n}"
     end
