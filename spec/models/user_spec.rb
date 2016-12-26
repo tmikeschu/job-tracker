@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   describe "associations" do
     it {should have_many(:jobs)}
     it {should have_many(:contacts)}
+    it {should have_many(:companies)}
+    it {should have_many(:categories)}
   end
 
   describe "validations" do
