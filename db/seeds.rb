@@ -11,7 +11,7 @@ User.destroy_all
 # CITIES = ["Seattle", "Denver", "Portland", "Indianapolis", "Madison", "Orlando", "San Diego", "Austin", "Las Vegas", "Little Rock", "Boise", "Eugene", "Oakland"]
 # CATEGORIES = ["Web Development", "DevOps", "Startup", "Backend", "Full Stack"]
 
-20.times do 
+5.times do 
   FactoryGirl.create(:full_user)
 end
 
