@@ -4,8 +4,7 @@ module ApplicationHelper
   end
 
   def categories
-    ids = current_user.jobs.pluck(:category_id)
-    ids.map { |id| Category.find(id) }.sort_by { |category| category.title }
+    Category.joins(:jobs).where("jobs.user_id = ?", current_user.id)
   end
 
   def cities

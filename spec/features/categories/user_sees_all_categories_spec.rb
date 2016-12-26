@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.feature "User sees all categories" do
 
   before do
-    @categories = create_list(:category, 10)
+    @user = create(:full_user)
+    @categories = Category.joins(:jobs).where("jobs.user_id = ?", @user.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit categories_path
   end
 

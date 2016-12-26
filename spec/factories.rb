@@ -75,6 +75,7 @@ FactoryGirl.define do
 
     factory :job_with_category do
       after(:create) do |job|
+        job.category = create(:category)
       end
     end
 
