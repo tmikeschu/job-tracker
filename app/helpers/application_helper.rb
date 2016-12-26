@@ -8,7 +8,6 @@ module ApplicationHelper
   end
 
   def cities
-    byebug
     current_user.jobs.order(:city).distinct.pluck(:city)
   end
 end
