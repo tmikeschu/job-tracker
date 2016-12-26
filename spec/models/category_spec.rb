@@ -8,5 +8,6 @@ RSpec.describe Category, type: :model do
 
   context 'associations' do
     it {should have_many(:jobs)}
+    it {should belong_to(:user)}
   end
 end
