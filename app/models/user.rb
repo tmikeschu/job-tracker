@@ -9,12 +9,4 @@ class User < ActiveRecord::Base
   has_many :contacts
   has_many :companies
   has_many :categories
-
-  def companies
-    Company.joins(:jobs).where("jobs.user_id = ?", id)
-  end
-
-  def categories
-    Category.joins(:jobs).where("jobs.user_id = ?", id)
-  end
 end
