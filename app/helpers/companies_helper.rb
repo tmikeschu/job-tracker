@@ -26,6 +26,6 @@ module CompaniesHelper
   end
 
   def alphabetical_companies
-    Company.order(:name)
+    current_user.companies.order(:name)
   end
 end

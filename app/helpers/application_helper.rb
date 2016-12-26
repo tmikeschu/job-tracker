@@ -1,6 +1,6 @@
 module ApplicationHelper
   def companies
-    Company.order(:name)
+    current_user.companies.order(:name)
   end
 
   def categories
