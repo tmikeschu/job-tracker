@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "dashboard#show"
 
   get '/login', to: "sessions#new"
+  post '/login', to: "sessions#create"
 
   resources :users, only: [:new, :create]
 
