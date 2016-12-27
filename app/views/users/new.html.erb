@@ -1,15 +1,36 @@
-<%= form_for @user do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+<div class="container_fluid center-block text-center" id="login-form">
+  <h1>Creat an account here!</h1>
+  <%= form_for @user do |f| %>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :first_name %>
+      </span>
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :last_name %>
+      </span>
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :email %>
+      </span>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <%= f.label :password %>
+      </span>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
 
-  <%= f.submit "Create Account" %>
-<% end %>
+    <div class="input-group">
+      <%= f.submit "Create Account", class: "btn btn-primary btn-block" %>
+    </div>
+  <% end %>
+</div>
