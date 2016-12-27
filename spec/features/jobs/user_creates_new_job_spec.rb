@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.feature "User creates a new job" do
   
   before do
-    @categories = create_list(:category, 5)
-    @company = Company.create!(name: "ESPN")
+    @user = create(:full_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    @categories = @user.categories
+    @company = @user.companies.first
     visit company_jobs_path(@company)
     click_on "Add New Job"
   end
@@ -22,7 +24,7 @@ RSpec.feature "User creates a new job" do
 
     job = Job.last
     expect(current_path).to eq company_job_path(@company, job)
-    expect(page).to have_content("ESPN")
+    expect(page).to have_content @company.name
     expect(page).to have_content("Developer")
     expect(page).to have_content("80")
     expect(page).to have_content("Denver")

@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.feature 'User deletes a job' do
   
   before do
-    @company = create(:company_with_jobs)
+    @user = create(:full_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    @company = @user.companies.last
     @jobs    = @company.jobs
     @job     = @jobs[4]
   end

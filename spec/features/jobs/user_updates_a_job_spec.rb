@@ -3,9 +3,11 @@ require 'rails_helper'
 RSpec.feature 'User updates a job' do
   
   before do
-    @company = create(:company_with_jobs)
+    @user = create(:full_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    @company = @user.companies.last
     @jobs    = @company.jobs
-    @job     = @jobs[5]
+    @job     = @jobs[3]
     visit company_jobs_path(@company)
     click_on @job.title
     click_on "Edit"
@@ -17,6 +19,9 @@ RSpec.feature 'User updates a job' do
     fill_in "job_description", with: Faker::Lorem.sentence
     fill_in "job_level_of_interest", with: (rand(99) + 1)
     fill_in "job_city", with: Faker::Address.city
+    within '#job_category_id' do
+      find("option[value='#{@user.categories.first.id}']").select_option
+    end
     click_on "Update Job"
     expect(current_path).to eq company_job_path(@company, @job)
     expect(page).to_not have_content @job.title
@@ -28,6 +33,9 @@ RSpec.feature 'User updates a job' do
       fill_in "job_title", with: ""
       fill_in "job_level_of_interest", with: ""
       fill_in "job_city", with: ""
+      within '#job_category_id' do
+        find("option[value='#{@user.categories.first.id}']").select_option
+      end
       click_on "Update Job"
       expect(page).to have_content "Title can't be blank"
       expect(page).to have_content "City can't be blank"
@@ -35,4 +43,10 @@ RSpec.feature 'User updates a job' do
     end
   end
 
+  context "they forget a category" do
+    scenario "and they see an error" do
+      click_on "Update Job"
+      expect(page).to have_content "Please enter a category"
+    end
+  end
 end

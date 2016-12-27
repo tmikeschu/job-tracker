@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "User sees a specific job" do
   scenario "a user sees a job for a specific company" do
-    company = create(:company_with_jobs)
+    @user = create(:full_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    company = @user.companies.last
     job = company.jobs.first
 
     visit company_job_path(company, job)
