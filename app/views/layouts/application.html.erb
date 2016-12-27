@@ -39,7 +39,7 @@
                   <li>
                     <%= link_to "All Jobs by City", "/jobs?sort=location" %>
                   </li> 
-                  <% cities.each do |city| %>
+                  <% all_cities.each do |city| %>
                     <li>
                       <%= link_to city, "jobs?location=#{city}"%>
                     </li>
