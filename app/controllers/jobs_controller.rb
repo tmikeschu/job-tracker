@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_company, only: [:index, :new, :create]
   before_action :set_categories, only: [:new, :edit]
+  before_action :set_user
   
   def index
     decide_which_index(params)
@@ -49,6 +50,10 @@ class JobsController < ApplicationController
   def set_categories
     @categories = Category.all
   end    
+
+  def set_user
+    @user = current_user
+  end
 
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
