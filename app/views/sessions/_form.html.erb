@@ -4,18 +4,14 @@
       <span class="input-group-addon" id="basic-addon1">
         <%= label_tag :email %>
       </span>
-      <div class="form-control">
-        <%= email_field_tag :email  %>
-      </div>
+      <%= email_field_tag :email, nil, class: "form-control"  %>
     </div>
     
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">
         <%= label_tag :password %>
       </span>
-      <div class="form-control" %>
-        <%= password_field_tag :password %>
-      </div>
+      <%= password_field_tag :password, nil, class: "form-control" %>
     </div>
 
     <div class='container-fluid'>
