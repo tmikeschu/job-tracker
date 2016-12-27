@@ -32,7 +32,7 @@ FactoryGirl.define do
   end
   
   factory :contact do
-    user
+    # user
 
     sequence :first_name do
       Faker::Name.first_name
@@ -52,7 +52,7 @@ FactoryGirl.define do
   end
 
   factory :category do
-    user 
+    # user 
 
     sequence :title do |n|
       "#{Faker::Company.name} #{n}"
@@ -98,7 +98,7 @@ FactoryGirl.define do
   end
 
   factory :company do
-    user
+    # user
     
     sequence :name do |n|
       "#{Faker::Company.name} #{n}"
