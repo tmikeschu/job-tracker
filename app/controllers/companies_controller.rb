@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
+    @company = current_user.companies.new(company_params)
     save_company(@company)
   end
 
@@ -32,7 +32,7 @@ class CompaniesController < ApplicationController
 
     private
     def set_company
-      @company = Company.joins(:jobs).where("jobs.user_id = ?", current_user.id).find(params[:id])
+      @company = current_user.companies.find(params[:id])
     end
 
     def company_params
