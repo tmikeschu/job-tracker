@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "User edits an existing company" do
   before do
-    @companies = create_list(:company, 2)
+    @user = create(:full_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    @companies = @user.companies
     @company    = @companies.first
     visit edit_company_path(@company)
   end
