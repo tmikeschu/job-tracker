@@ -67,8 +67,8 @@ FactoryGirl.define do
   end
 
   factory :job do
-    sequence :title do 
-      Faker::Name.title
+    sequence :title do |n| 
+      "#{Faker::Name.title} #{n}"
     end
 
     sequence :description do
