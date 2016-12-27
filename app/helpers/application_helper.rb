@@ -1,13 +1,13 @@
 module ApplicationHelper
   def companies
     current_user.companies.order(:name)
-  end
+end
 
   def categories
-    Category.joins(:jobs).where("jobs.user_id = ?", current_user.id)
+    current_user.categories.order(:title)
   end
 
-  def cities
+  def all_cities
     current_user.jobs.order(:city).distinct.pluck(:city)
   end
 end
