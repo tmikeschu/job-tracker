@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature "User creates an account" do
   scenario "they can create an account" do
     visit root_path
-    expect(page).to_not have_content "let's get you hired"
     click_on "Create an Account"
     fill_in "user_first_name", with: "Mike"
     fill_in "user_last_name", with: "Schutte"
