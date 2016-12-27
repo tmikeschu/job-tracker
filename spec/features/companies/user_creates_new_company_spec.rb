@@ -2,17 +2,21 @@ require 'rails_helper'
 
 RSpec.feature "User creates a new company" do
   before do
+    @user = create(:full_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit companies_path
     click_on "Add New Company"
   end
 
   scenario "a user can create a new company" do
+    expect(Company.count).to eq(2)
     fill_in "company_name", with: "ESPN"
     click_on "Create"
-
-    expect(current_path).to eq("/companies/#{Company.last.id}/jobs")
+    @user.reload
+    company = @user.companies.last
+    expect(current_path).to eq("/companies/#{company.id}/jobs")
     expect(page).to have_content("ESPN")
-    expect(Company.count).to eq(1)
+    expect(Company.count).to eq(3)
   end
 
   context "when they enter invalid data" do
