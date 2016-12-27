@@ -44,8 +44,10 @@ body {
   background-color: rgb(255, 250, 213);
 }
 
-.navbar-default .navbar-nav .open .dropdown-menu>li>a {
-  color: rgb(255, 250, 213);
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: rgb(255, 250, 213);
+  }
 }
 
 .dropdown-toggle {
