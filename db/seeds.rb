@@ -10,10 +10,7 @@ User.destroy_all
 # JOBS = ["Engineering", "Development", "Dev Ops", "Quality Assurance", "Teacher", "Product Manager", "Consultant", "Community Manager"]
 # CITIES = ["Seattle", "Denver", "Portland", "Indianapolis", "Madison", "Orlando", "San Diego", "Austin", "Las Vegas", "Little Rock", "Boise", "Eugene", "Oakland"]
 # CATEGORIES = ["Web Development", "DevOps", "Startup", "Backend", "Full Stack"]
-
-5.times do 
-  FactoryGirl.create(:full_user)
-end
+FactoryGirl.create(:full_user)
 
 # CATEGORIES.each do |title|
 #   Category.create(title: title)
