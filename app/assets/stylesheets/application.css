@@ -122,6 +122,10 @@ li a:hover {
   width: 50%;
 }
 
+#login-form {
+  width: 40%;
+}
+
 .btn {
   margin: 5px;
 }
