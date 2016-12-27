@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe JobsHelper, type: :helper do
   before do
-    @jobs = create_list(:job, 10)
+    @user = create(:full_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    @jobs = @user.jobs
   end
 
   describe "full_name" do
