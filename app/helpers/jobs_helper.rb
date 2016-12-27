@@ -1,6 +1,6 @@
 module JobsHelper
   def save_job(job, job_params)
-    return no_category_error if job_params["category_id"] == ""
+    return errors(job) if job_params["category_id"] == ""
     if job.save
       flash[:success] = "You created #{job.title} at #{job.company.name}"
       redirect_to company_job_path(job.company, job)
@@ -10,7 +10,7 @@ module JobsHelper
   end
 
   def update_job(job, job_params)
-    return no_category_error if job_params["category_id"] == ""
+    return errors(job) if job_params["category_id"] == ""
     if job.update(job_params)
       flash[:success] = "#{job.title} was updated!"
       redirect_to company_job_path(job.company, job)
@@ -19,13 +19,9 @@ module JobsHelper
     end
   end
 
-  def no_category_error
-    @errors = ["Please enter a category"]
-    render :edit
-  end
-  
   def errors(job)
     @errors = job.errors.full_messages
+    @errors << "Please enter a category"
     render :edit
   end
 
