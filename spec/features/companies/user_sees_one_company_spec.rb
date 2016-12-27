@@ -2,13 +2,14 @@ require 'rails_helper'
 
 RSpec.feature "User sees one company" do
   scenario "a user sees a company" do
-    company = Company.create!(name: "ESPN")
-    company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver")
+    @user = create(:full_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    company = @user.companies.first
 
     visit company_path(company)
 
     expect(current_path).to eq company_jobs_path(company)
-    expect(page).to have_content("ESPN")
-    expect(page).to have_link "Developer", href: company_job_path(company, company.jobs.first)
+    expect(page).to have_content company.name
+    expect(page).to have_link company.jobs.first.title, href: company_job_path(company, company.jobs.first)
   end
 end
