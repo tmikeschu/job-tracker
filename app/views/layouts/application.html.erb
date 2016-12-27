@@ -28,8 +28,8 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <% if current_user %>
-            <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right">
+            <% if current_user %>
               <li>
                 <%= link_to "Jobs by Interest Level", "/jobs?sort=interest" %>
               </li>
@@ -75,8 +75,10 @@
                 </ul>
               </li>
               <li><%= link_to "Log out", logout_path, method: :delete %></li>
-            </ul>
-          <% end %>
+            <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+            <% end %>
+          </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
