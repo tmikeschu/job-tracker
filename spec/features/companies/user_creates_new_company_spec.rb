@@ -9,14 +9,14 @@ RSpec.feature "User creates a new company" do
   end
 
   scenario "a user can create a new company" do
-    expect(Company.count).to eq(2)
+    expect(Company.count).to eq(4)
     fill_in "company_name", with: "ESPN"
     click_on "Create"
     @user.reload
-    company = @user.companies.last
+    company = @user.companies.find_by(name: "ESPN")
     expect(current_path).to eq("/companies/#{company.id}/jobs")
     expect(page).to have_content("ESPN")
-    expect(Company.count).to eq(3)
+    expect(Company.count).to eq(5)
   end
 
   context "when they enter invalid data" do
