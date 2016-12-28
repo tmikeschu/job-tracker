@@ -44,7 +44,7 @@ class JobsController < ApplicationController
   end
 
   def set_company
-    @company = Company.find(params[:company_id]) if params[:company_id]
+    @company = current_user.companies.find(params[:company_id]) if params[:company_id]
   end
 
   def set_categories
