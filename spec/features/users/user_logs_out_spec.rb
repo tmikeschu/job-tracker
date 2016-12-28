@@ -9,7 +9,9 @@ RSpec.feature "User logs out" do
     visit dashboard_path
     fill_in "email", with: @user.email
     fill_in "password", with: @user.password
-    click_on "Log in"
+    within ".col-md-6:nth-child(1)" do
+      click_on "Log in"
+    end
     expect(current_path).to eq dashboard_path
     click_on "Log out"
     expect(page).to have_content "Logout successful!"

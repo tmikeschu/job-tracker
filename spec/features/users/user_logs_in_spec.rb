@@ -9,7 +9,7 @@ RSpec.feature "User logs in" do
     visit root_path
     fill_in "email", with: @user.email
     fill_in "password", with: @user.password
-    within ".col-md-6" do
+    within ".col-md-6:nth-child(1)" do
       click_on "Log in"
     end
     expect(current_path).to eq dashboard_path
@@ -21,7 +21,7 @@ RSpec.feature "User logs in" do
       visit root_path
       fill_in "email", with: @user.email
       fill_in "password", with: ";lkjasdlfj;af"
-      within ".col-md-6" do
+      within ".col-md-6:nth-child(1)" do
         click_on "Log in"
       end
       expect(page).to have_content "Incorrect password. Try again."
@@ -33,7 +33,7 @@ RSpec.feature "User logs in" do
       visit root_path
       fill_in "email", with: @user.email + "z"
       fill_in "password", with: @user.password
-      within ".col-md-6" do
+      within ".col-md-6:nth-child(1)" do
         click_on "Log in"
       end
       expect(page).to have_content "Unknown email. Try again."
