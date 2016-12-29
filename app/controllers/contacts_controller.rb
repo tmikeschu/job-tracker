@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   include ContactsHelper
   
-  before_action :set_company, only: [:create, :show]
+  before_action :set_company, only: [:create, :index]
 
   def create
     @jobs = @company.jobs
@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = @company.contacts
-    redirect_to company_path(company)
+    redirect_to company_path(@company)
   end
 
   private
