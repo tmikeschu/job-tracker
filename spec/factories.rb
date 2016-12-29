@@ -23,13 +23,18 @@ FactoryGirl.define do
         user.companies = create_list(:company, 4)
         user.companies.first.jobs = create_list(:job, 5)
         user.companies.last.jobs = create_list(:job, 5)
+        user.companies.each do |company|
+          company.jobs.each do |job|
+            job.user_id = user.id
+            job.save!
+          end
+        end
         user.categories = create_list(:category, 5)
         user.contacts = create_list(:contact, 5)
         user.contacts.each do |contact|
           contact.company_id = user.companies.sample.id
           contact.save!
         end 
-        user.jobs = Job.joins(:company).where("companies.user_id = ?", user.id)
         user.jobs.each {|job| job.category = user.categories.sample }
       end
     end
