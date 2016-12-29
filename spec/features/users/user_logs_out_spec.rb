@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User logs out" do
   before do
-    @user = create(:full_user)
+    @user = create(:user)
   end
 
   scenario "they log out" do
@@ -16,5 +16,9 @@ RSpec.feature "User logs out" do
     click_on "Log out"
     expect(page).to have_content "Logout successful!"
     expect(current_path).to eq login_path
+  end
+
+  after do
+    User.last.destroy
   end
 end

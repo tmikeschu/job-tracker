@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User logs in" do
   before do
-    @user = create(:full_user)
+    @user = create(:user)
   end
 
   scenario "they log in successfully" do
@@ -38,5 +38,9 @@ RSpec.feature "User logs in" do
       end
       expect(page).to have_content "Unknown email. Try again."
     end
+  end
+
+  after do
+    User.last.destroy
   end
 end
