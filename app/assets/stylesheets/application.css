@@ -10,13 +10,13 @@ body {
   color: rgba(16, 91, 99, 1);
   background: rgba(219, 158, 54, .2);
   /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25));
+  background: -webkit-linear-gradient(rgba(219, 158, 54, .3), rgba(219, 158, 54, .01));
   /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25));
+  background: -o-linear-gradient(rgba(219, 158, 54, .3), rgba(219, 158, 54, .01));
   /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25));
+  background: -moz-linear-gradient(rgba(219, 158, 54, .3), rgba(219, 158, 54, .01));
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgba(219, 158, 54, .2), rgba(16, 91, 99, .25)) no-repeat center center fixed;
+  background: linear-gradient(rgba(219, 158, 54, .3), rgba(219, 158, 54, .01)) no-repeat center center fixed;
   padding-top: 50px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
