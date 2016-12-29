@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <div class="container">
     <h1 class="page-header">
-      Welcome to JTrack <br /><small>let's get you hired</small>
+      Welcome to JTrack<%= ", #{current_user.first_name}!" if current_user %> <br /><small>let's get you hired</small>
     </h1>
 
     <div class="container-fluid">
