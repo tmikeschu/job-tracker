@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "User creates a new job" do
   
   before do
-    @user = create(:full_user)
+    @user = User.first
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     @categories = @user.categories
     @company = @user.companies.first
@@ -17,7 +17,7 @@ RSpec.feature "User creates a new job" do
     fill_in "job_level_of_interest", with: 80
     fill_in "job_city", with: "Denver"
     within '#job_category_id' do
-      find("option[value='1']").select_option
+      find("option[value='#{@categories.first.id}']").select_option
     end
 
     click_on "Create Job"
