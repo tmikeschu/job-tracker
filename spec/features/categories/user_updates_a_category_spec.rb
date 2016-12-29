@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User updates a category" do
   before do
-    @user = create(:full_user)
+    @user = User.first
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     categories = @user.categories
     @category1 = categories.order(:title).first

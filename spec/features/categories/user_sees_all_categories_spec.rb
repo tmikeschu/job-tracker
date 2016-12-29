@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "User sees all categories" do
 
   before do
-    @user = create(:full_user)
+    @user = User.first
     @categories = @user.categories
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit categories_path

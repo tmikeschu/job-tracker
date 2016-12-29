@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "User sees one category" do
   before do
-    @user = create(:full_user)
-    @category = @user.jobs.first.category
+    @user = User.first
+    @category = @user.categories.first
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit categories_path
     within "ul.list-group" do

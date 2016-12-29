@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User creates a category" do
   before do
-    @user = create(:full_user)
+    @user = User.first
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
