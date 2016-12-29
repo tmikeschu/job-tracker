@@ -16,6 +16,7 @@ class JobsController < ApplicationController
 
   def create
     @job = @company.jobs.new(job_params)
+    @job.user_id = current_user.id
     save_job(@job, job_params)
   end
 
