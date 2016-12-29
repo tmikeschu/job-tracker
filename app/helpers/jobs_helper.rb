@@ -49,7 +49,7 @@ module JobsHelper
     @jobs = @user.jobs
     return sorted_jobs(params) if params[:sort]
     return location_jobs(params) if params[:location]
-    @jobs  = @user.jobs.where(company_id: @company.id)
+    @jobs  = @user.companies.find(@company.id).jobs
     @contact = Contact.new
     @contacts = @company.contacts
   end
