@@ -5,8 +5,8 @@ class ContactsController < ApplicationController
 
   def create
     @jobs = @company.jobs
-    @contact = Contact.new(contact_params)
-    @contact.company_id = @company.id
+    @contact = @company.contacts.new(contact_params)
+    @contact.user_id = current_user.id
     save_contact(@contact)
   end
 
