@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User creates a contact" do
   before do
-    @user = create(:full_user)
+    @user = User.first
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     @company = @user.companies.first
     @first_name, @last_name, @position, @email = %w(Sam Gerk developer samgerk@email.com)
