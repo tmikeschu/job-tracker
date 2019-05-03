@@ -1,12 +1,10 @@
-require 'factory_girl_rails'
-
-FactoryGirl.define do
+FactoryBot.define do
   factory :contact do
     sequence :first_name do
       Faker::Name.first_name
     end
 
-    sequence :last_name do 
+    sequence :last_name do
       Faker::Name.last_name
     end
 
@@ -33,7 +31,7 @@ FactoryGirl.define do
   end
 
   factory :job do
-    sequence :title do 
+    sequence :title do
       Faker::Name.title
     end
 
@@ -42,7 +40,7 @@ FactoryGirl.define do
     end
 
     sequence :level_of_interest do
-      rand(99) + 1
+      rand(1..99)
     end
 
     sequence :city do
