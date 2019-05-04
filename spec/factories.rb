@@ -9,7 +9,7 @@ FactoryBot.define do
     end
 
     sequence :position do
-      Faker::Name.title
+      Faker::Job.title
     end
 
     sequence :email do
@@ -32,7 +32,7 @@ FactoryBot.define do
 
   factory :job do
     sequence :title do
-      Faker::Name.title
+      Faker::Job.title
     end
 
     sequence :description do

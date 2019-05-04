@@ -1,7 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.feature 'User updates a job' do
-  
+RSpec.feature "User updates a job" do
   before do
     @company = create(:company_with_jobs)
     @jobs    = @company.jobs
@@ -12,10 +11,10 @@ RSpec.feature 'User updates a job' do
   end
 
   scenario "they update information about a job" do
-    new_title = Faker::Name.title
+    new_title = Faker::Job.title
     fill_in "job_title", with: new_title
     fill_in "job_description", with: Faker::Lorem.sentence
-    fill_in "job_level_of_interest", with: (rand(99) + 1)
+    fill_in "job_level_of_interest", with: rand(1..99)
     fill_in "job_city", with: Faker::Address.city
     click_on "Update Job"
     expect(current_path).to eq company_job_path(@company, @job)
@@ -34,5 +33,4 @@ RSpec.feature 'User updates a job' do
       expect(page).to have_content "Level of interest can't be blank"
     end
   end
-
 end
