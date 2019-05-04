@@ -13,7 +13,7 @@ CATEGORIES.each do |title|
 end
 
 20.times do
-  Contact.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, position: Faker::Name.title, email: Faker::Internet.email)
+  Contact.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, position: Faker::Job.title, email: Faker::Internet.email)
 end
 
 i = 0
